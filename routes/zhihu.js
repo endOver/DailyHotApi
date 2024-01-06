@@ -35,7 +35,7 @@ const getData = (data) => {
         title: v.target.titleArea.text,
         desc: v.target.excerptArea.text,
         pic: v.target.imageArea.url,
-        hot: parseInt(v.target.metricsArea.text.replace(/[^\d]/g, "")) * 10000,
+        hot: v.target.metricsArea.text,
         url: v.target.link.url,
         mobileUrl: v.target.link.url,
       });
