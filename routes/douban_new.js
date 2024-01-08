@@ -33,7 +33,8 @@ const headers = {
 
 // 豆瓣新片榜单特殊处理 - 标题
 const replaceTitle = (title, score) => {
-  return `[★${score}] ` + title.replace(/\n/g, "").replace(/ /g, "").replace(/\//g, " / ").trim();
+  return title.replace(/\n/g, "").replace(/ /g, "").replace(/\//g, " / ").trim();
+  // return `[★${score}] ` + title.replace(/\n/g, "").replace(/ /g, "").replace(/\//g, " / ").trim();
 };
 
 // 数据处理
@@ -49,7 +50,7 @@ const getData = (data) => {
       dataList.push({
         title: replaceTitle($(item).find("a").text(), score),
         desc: $(item).find("p").text(),
-        score,
+        score: `[★${score}] `,
         comments: $(item).find("span.pl").text().match(/\d+/)?.[0] ?? "",
         pic: $(item).find("img").attr("src") ?? "",
         url: $(item).find("a").attr("href") ?? "",
